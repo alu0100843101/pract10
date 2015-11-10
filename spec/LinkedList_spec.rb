@@ -1,6 +1,6 @@
 require 'spec_helper'
-require '../bib/bib_cod'
-require '../bib/LinkedList'
+require 'bib/bib_cod'
+require 'bib/LinkedList'
 
 describe Bib do
       before :each do

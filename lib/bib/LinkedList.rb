@@ -1,5 +1,5 @@
-require "version"
-require "bib_cod"
+require "bib/version"
+require "bib/bib_cod"
 
 class LinkedList
 		attr_reader  :head, :end
