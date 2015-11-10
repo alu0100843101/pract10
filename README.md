@@ -1,8 +1,7 @@
 Lenguajes Paradigmas de la Programación
-Práctica Desarrollo dirigido por pruebas (TDD) #6
+Práctica 7: Programacion Orientada a Objetos.
 
 Andrea Pérez Quintana
-Sofía Pizarro Arbelo
 
 
 # Bib
