@@ -4,6 +4,7 @@ require 'bib/LinkedList'
 
 describe Bib do
       before :each do
+          
         @object2 = Bib.new(['Dave Thomas', 'Andy Hunt', 'Chad Fowler' ], 
         'Programming Ruby 1.9 & 2.0: The Pragmatic Programmers Guide', 
         '(The Facets of Ruby)',  'Pragmatic Bookshelf', '4 edition', 
@@ -24,32 +25,32 @@ describe Bib do
         @object6 = Bib.new('Richard E. Silverman', 'Git Pocket Guide', nil, 'O’Reilly Media', 
         '1 edition', '(August 2, 2013)', ['ISBN-10: 1449325866', 'ISBN-13: 978-1449325862'])
         
-        @L= LinkedList.new @object2 #Creamos primero el nodo
-        @L.add(@object3) #Añadimos un nodo
+        @L=LinkedList.new @object2
+        
+        @object = Array.new(3)
+        @object = [@object4, @object5, @object6]
+        
+        @L.add(@object3) 
+        @L.add(@object)
+        
     end
     
-    describe "Con la estructura node se puede:" do
+    describe "En la clase LinkedList podemos:" do
         
-        it "Crear nodo" do
-            @L.head.should_not eq nil
+        it "Añadir nodos" do
+            expect(@L).not_to be 0 
         end
-        it "Obtener valor del nodo" do
-            @L.head.value.to_s.should eq @object2.to_s
+        it "Crear nodo vacío" do
+            expect(@L.head).not_to be nil
         end
         it "Apuntar al siguiente nodo" do
-            @L.head.next.should eq nil
+            expect(@L.head.next).to eq nil
         end
-    end
-    
-    describe "Con la clase linkedList se puede:" do
         it "Acceder al primer valor" do
-            @L.head.value.should eq @object2
+            expect(@L.head.value).to eq @object2
         end
         it "Aceder al último elemento" do
-            @L.end.value.should eq @object3
-        end
-        it "Insertar más de un elemento" do
-            @L.add(@object6)
+            expect(@L.end.value).to eq @object6
         end
     end
 end
