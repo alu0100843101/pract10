@@ -1,4 +1,5 @@
-Lenguajes Paradigmas de la Programación
+Lenguajes Paradigmas de la Programación.
+
 Práctica 7: Programacion Orientada a Objetos.
 
 Andrea Pérez Quintana

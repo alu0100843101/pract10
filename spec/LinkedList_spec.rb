@@ -24,11 +24,11 @@ describe Bib do
         @object6 = Bib.new('Richard E. Silverman', 'Git Pocket Guide', nil, 'O’Reilly Media', 
         '1 edition', '(August 2, 2013)', ['ISBN-10: 1449325866', 'ISBN-13: 978-1449325862'])
         
-        @L= LinkedList.new @object2
-        @L.add(@object3)
+        @L= LinkedList.new @object2 #Creamos primero el nodo
+        @L.add(@object3) #Añadimos un nodo
     end
     
-    describe "Con node se puede:" do
+    describe "Con la estructura node se puede:" do
         
         it "Crear nodo" do
             @L.head.should_not eq nil
@@ -41,14 +41,14 @@ describe Bib do
         end
     end
     
-    describe "Con linkedList se puede:" do
+    describe "Con la clase linkedList se puede:" do
         it "Acceder al primer valor" do
             @L.head.value.should eq @object2
         end
         it "Aceder al último elemento" do
             @L.end.value.should eq @object3
         end
-        it "SInsertar más de un elemento" do
+        it "Insertar más de un elemento" do
             @L.add(@object6)
         end
     end

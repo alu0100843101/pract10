@@ -29,7 +29,7 @@ class LinkedList
 				end
 			elsif value.instance_of? Array #Varias
 				value.each do |i|
-					self.add(i)
+					self.add(i) #Paunta al objeto referenciado
 				end
 			end
 		
