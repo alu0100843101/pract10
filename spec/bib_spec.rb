@@ -1,62 +1,73 @@
-#Andrea Pérez Quintana
-
 require 'spec_helper'
 require 'bib/bib_cod'
 
-describe Bib do
- 
- #it 'requires additional testing'
- 
- before :each do
+describe Libro do
+    before :all do
+        @l = Libro.new('Jesús Thrashorras', 'Configuración de instalaciones léctricas', nil, 'Paraninfo', '2013 edition', '2013', '9788497329354')
+    end
        
-    autor = [ 'Dave Thomas', 'Andy Hunt', 'Chad Fowler' ]
-    titulo = 'Programming Ruby 1.9 & 2.0: The Pragmatic Programmers Guide'
-    serie = '(The Facets of Ruby)'
-    editorial = 'Pragmatic Bookshelf'
-    edicion = '4 edition'
-    fecha = 'July 7, 2013'
-    isbn = [ 'ISBN-13: 978-1937785499', 'ISBN-10: 1937785491']
- 
- @object1 = Bib.new(autor, titulo, serie, editorial, edicion, fecha, isbn) #Se crea el primer objeto
- 
-  end
-  
-  describe "# Object" do
-    it "Creación de objeto" do
-      @object1.should be_an_instance_of Bib
-    end
-  end
-  
-  describe "# Debe existir" do
-   
-    it "Uno o más autores" do
-        expect(@object1.get_autor.length).to_not be 0  # Longitud de Autor no debe ser cero. spe
-     
-      
-    end
-   
-    it "Un título" do
-       expect(@object1.get_titulo.length).to_not be 0  
-    end
-   
-    it "O no una serie" do
-       expect(@object1.get_serie).to_not be 'V'  # V = vacío.
+    it "Es una la instancia de Libro" do
+       (@l.instance_of?Libro).should eq(true)
     end
     
-    it "Una editorial" do
-       expect(@object1.get_serie.length).to_not be 0
+    it "Debe responder a un metodo de su clase padre" do
+        @l.respond_to?(:autor).should eq(true)
     end
-   
-    it "Una edición" do
-       expect(@object1.get_edicion.length).to_not be 0
+end
+
+describe Revista do
+    before :all do
+        @r = Revista.new('Felipe', 'Decoracion de hogar', 'Hogares', 5, 'January 1', 2015, 9857425)
     end
-   
-    it "Una fecha" do
-      expect(@object1.get_fecha.length).to_not be 0
+    
+    it "Es una instancia de Revista" do
+       (@r.instance_of?Revista).should eq(true)
     end
-   
-    it "Uno o más ISBN" do
-       expect(@object1.get_isbn.length).to_not be 0 
+    
+    it "Debe responder a un metodo de su clase padre" do
+        @r.respond_to?(:autor).should eq(true)
     end
-  end
+end
+
+describe Periodico do
+    before :all do
+        @p = Periodico.new('Maria', 'Diario de avisos', 'Noticias', 1, 'February 10', 2013, 15)
+    end
+
+    it "Es una instancia de Periodico" do
+       (@p.instance_of?Periodico).should eq(true)
+    end
+
+    it "Debe responder a un metodo de su clase padre" do
+        @p.respond_to?(:autor).should eq(true)
+    end
+end
+
+describe Electronico do
+    before :all do
+        @e = Electronico.new('Alexis', 'Programa en Java', 'Programming', 3, 'November 17', 2015, 'www.urldelbook.com')
+    end
+
+    it "Es una instancia de Electronico" do
+       (@e.instance_of?Electronico).should eq(true)
+    end
+
+    it "Debe responder a un metodo de su clase padre" do
+        @e.respond_to?(:autor).should eq(true)
+    end
+end
+
+describe LinkedList do
+    before :all do
+        @L=LinkedList.new()
+    end
+    
+    it "Al inicializar la lista, el inicio es nulo" do
+            @L.head.should eq(nil)
+    end
+    
+    it "Al inicializar la lista, el final es nulo" do
+        @L.end.should eq(nil)
+    end
+    
 end
