@@ -1,11 +1,29 @@
 class Bib
  
  attr_accessor :autor, :titulo, :serie, :editorial, :edicion, :fecha, :isbn #RW
-
+ include Comparable # Módulo que permite que implementemos comparaciones convencionales en nuestra clase.
+ 
  def initialize(autor, titulo, serie, editorial, edicion, fecha, isbn)
    @autor, @titulo, @serie, @editorial, @edicion, @fecha, @isbn = autor, titulo, serie, editorial, edicion, fecha, isbn
  end
 
+    def <=>(other) # Método para incluir el mixin comparable. 
+        if other.is_a? Bib
+          @titulo <=> other.titulo
+        else
+          false
+        end
+    end
+      
+    def ==(other) # Método de comparación añadido al mixin comparable.
+        if other.is_a? Bib
+          @titulo == other.titulo
+        else
+          false
+        end
+    end
+    
+    
  def to_s
   puts "#{@autor}, #{@titulo}, #{@serie}, #{@editorial}, #{@edicion}, #{@fecha}, #{@isbn}"
  end
@@ -83,11 +101,21 @@ Node = Struct.new :value, :next, :prev
 
 class LinkedList
 		attr_reader :head, :end
+		
+		include Enumerable
 
 		def initialize()
 			@head = nil
         	@end = nil
 		end
+		
+	def each 
+        aux = @head 
+        while aux != nil 
+          yield aux.value 
+          aux = aux.next 
+        end
+    end
 		
 		def pushf(value) # Se inserta por el final.
 			 nodo = Node.new(value,nil,nil)

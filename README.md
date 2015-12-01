@@ -1,6 +1,6 @@
 Lenguajes Paradigmas de la Programación.
 
-Práctica 7: Programacion Orientada a Objetos.
+Práctica 9: Módulos.
 
 Andrea Pérez Quintana
 
