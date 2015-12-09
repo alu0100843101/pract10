@@ -1,6 +1,6 @@
 Lenguajes Paradigmas de la Programación.
 
-Práctica 9: Módulos.
+Práctica 10: Programacion Funcional.
 
 Andrea Pérez Quintana
 
